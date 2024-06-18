@@ -57,6 +57,7 @@ function checkButtonState() {
 }
 
 function toItems() {
+  console.log('아이템 페이지로 가게해도 좀');
   window.location.href = '/items';
 }
 

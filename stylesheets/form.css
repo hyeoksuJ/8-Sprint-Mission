@@ -85,7 +85,7 @@ input::placeholder {
   color: var(--red);
   font-weight: 600;
   font-size: 15px;
-  line-height: 17.9px;
+  line-height: 18px;
 }
 
 .password-icon {
@@ -96,7 +96,7 @@ input::placeholder {
 label {
   color: var(--gray800);
   font-size: 18px;
-  line-height: 21.48px;
+  line-height: 21px;
   font-weight: 700;
 }
 
