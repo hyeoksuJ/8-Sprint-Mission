@@ -10,10 +10,10 @@ function emailFocusIn() {
 
 function emailAlert() {
   const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,}$/;
-  if (emailInput.value === '') {
+  if (emailInput.value.trim() === '') {
     emailInput.classList.add('alert-border');
     emailAlertMessage.textContent = '이메일을 입력해주세요';
-  } else if (!emailRegex.test(emailInput.value)) {
+  } else if (!emailRegex.test(emailInput.value.trim())) {
     emailInput.classList.add('alert-border');
     emailAlertMessage.textContent = '잘못된 이메일 형식입니다';
   } else {
@@ -28,10 +28,10 @@ function passwordFocusIn() {
 }
 
 function passwordAlert() {
-  if (passwordInput.value === '') {
+  if (passwordInput.value.trim() === '') {
     passwordInput.classList.add('alert-border');
     passwordAlertMessage.textContent = '비밀번호를 입력해주세요';
-  } else if (passwordInput.value.length < 8) {
+  } else if (passwordInput.value.trim().length < 8) {
     passwordInput.classList.add('alert-border');
     passwordAlertMessage.textContent = '비밀번호를 8자 이상 입력해주세요';
   } else {
@@ -43,9 +43,11 @@ function passwordAlert() {
 
 function checkButtonState() {
   const emailEnable =
-    emailInput.value !== '' && emailAlertMessage.textContent === '';
+    emailInput.value.trim() !== '' &&
+    emailAlertMessage.textContent.trim() === '';
   const passwordEnable =
-    passwordInput.value !== '' && passwordAlertMessage.textContent === '';
+    passwordInput.value.trim() !== '' &&
+    passwordAlertMessage.textContent.trim() === '';
 
   if (emailEnable && passwordEnable) {
     loginButton.disabled = false;
