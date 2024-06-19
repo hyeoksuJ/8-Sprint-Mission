@@ -121,6 +121,7 @@ button {
 
 .button-enable {
   background-color: var(--blue);
+  cursor: pointer;
 }
 
 /* 간편 로그인 */

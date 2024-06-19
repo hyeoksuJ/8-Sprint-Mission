@@ -8,6 +8,10 @@ function emailFocusIn() {
   emailInput.classList.add('focus-in-blue');
 }
 
+function passwordFocusIn() {
+  passwordInput.classList.add('focus-in-blue');
+}
+
 function emailAlert() {
   const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,}$/;
   if (emailInput.value.trim() === '') {
@@ -21,10 +25,6 @@ function emailAlert() {
     emailAlertMessage.textContent = '';
   }
   checkButtonState();
-}
-
-function passwordFocusIn() {
-  passwordInput.classList.add('focus-in-blue');
 }
 
 function passwordAlert() {
@@ -59,8 +59,8 @@ function checkButtonState() {
 }
 
 function toItems() {
-  console.log('아이템 페이지로 가게해도 좀');
-  window.location.href = '/items';
+  console.log('아이템 페이지로 가게해주세요. 제발');
+  window.location.href = './items.html';
 }
 
 emailInput.addEventListener('focusin', emailFocusIn);

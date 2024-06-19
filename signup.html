@@ -13,10 +13,12 @@
       <div class="input-item">
         <label for="signup-email">이메일</label>
         <input id="signup-email" name="email" type="email" placeholder="이메일을 입력해주세요" required autocomplete="on">
+        <div id="email-alert-message" class="alert-message"></div>
       </div>
       <div class="input-item">
         <label for="signup-nickname">닉네임</label>
         <input id="signup-nickname" name="nickname" type="text" placeholder="닉네임을 입력해주세요">
+        <div id="nickname-alert-message" class="alert-message"></div>
       </div>
       <div class="input-item">
         <label for="signup-password">비밀번호</label>
@@ -24,6 +26,7 @@
           <input id="signup-password" name="password" type="password" placeholder="비밀번호를 입력해주세요" required>
           <img src="./images/non_visibility.png" class="password-icon" alt="눈 모양 아이콘">
         </div>
+        <div id="password-alert-message" class="alert-message"></div>
       </div>
       <div class="input-item">
         <label for="signup-password-confirm">비밀번호 확인</label>
@@ -31,6 +34,7 @@
           <input id="signup-password-confirm" name="password-confirm" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
           <img src="./images/non_visibility.png" class="password-icon" alt="눈 모양 아이콘">
         </div>
+        <div id="password-confirm-alert-message" class="alert-message"></div>
       </div>
       <button class="form-button">
         회원가입
