@@ -58,7 +58,8 @@ function checkButtonState() {
   }
 }
 
-function toItems() {
+function toItems(e) {
+  e.preventDefault(); // 폼 기본동작 막기(버튼 누르면 아래 주소로 이동하기 위해)
   console.log('아이템 페이지로 가게해주세요. 제발');
   window.location.href = './items.html';
 }
