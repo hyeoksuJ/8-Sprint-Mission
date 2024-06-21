@@ -8,7 +8,7 @@ const passwordAlertMessage = document.getElementById('password-alert-message');
 const passwordConfirmAlertMessage = document.getElementById(
   'password-confirm-alert-message'
 );
-const loginButton = document.getElementById('login-button');
+const signupButton = document.getElementById('signup-button');
 
 function emailFocusIn() {
   emailInput.classList.add('focus-in-blue');
@@ -38,12 +38,18 @@ function emailAlert() {
     emailInput.classList.remove('alert-border');
     emailAlertMessage.textContent = '';
   }
+  buttonCheckState();
 }
 
 function nicknameAlert() {
   if (nicknameInput.value.trim() === '') {
     nicknameInput.classList.add('alert-border');
+    nicknameAlertMessage.textContent = '닉네임을 입력해주세요';
+  } else {
+    nicknameInput.classList.remove('alert-border');
+    nicknameAlertMessage.textContent = '';
   }
+  buttonCheckState();
 }
 
 function passwordAlert() {
@@ -57,11 +63,60 @@ function passwordAlert() {
     passwordInput.classList.remove('alert-border');
     passwordAlertMessage.textContent = '';
   }
+  buttonCheckState();
 }
 
-function passwordConfirmAlert() {}
+function passwordConfirmAlert() {
+  if (passwordConfirmInput.value !== passwordInput.value) {
+    passwordConfirmInput.classList.add('alert-border');
+    passwordConfirmAlertMessage.textContent = '비밀번호가 일치하지 않습니다';
+  } else {
+    passwordConfirmInput.classList.remove('alert-border');
+    passwordConfirmAlertMessage.textContent = '';
+  }
+  buttonCheckState();
+}
+
+function buttonCheckState() {
+  const emailEnable =
+    emailInput.value.trim() !== '' &&
+    emailAlertMessage.textContent.trim() === '';
+  const nicknameEnable =
+    nicknameInput.value.trim() !== '' &&
+    nicknameAlertMessage.textContent.trim() === '';
+  const passwordEnable =
+    passwordInput.value.trim() !== '' &&
+    passwordAlertMessage.textContent.trim() === '';
+  const passwordConfirmEnable =
+    passwordConfirmInput.value.trim() !== '' &&
+    passwordConfirmAlertMessage.textContent.trim() === '';
+
+  if (
+    emailEnable &&
+    nicknameEnable &&
+    passwordEnable &&
+    passwordConfirmEnable
+  ) {
+    signupButton.disabled = false;
+    signupButton.classList.add('button-enable');
+  } else {
+    signupButton.disabled = true;
+    signupButton.classList.remove('button-enable');
+  }
+}
+
+function toSignup(e) {
+  e.preventDefault();
+  console.log('signin 페이지로');
+  window.location.href = './signin.html';
+}
 
 emailInput.addEventListener('focusin', emailFocusIn);
 nicknameInput.addEventListener('focusin', nicknameFocusIn);
 passwordInput.addEventListener('focusin', passwordFocusIn);
 passwordConfirmInput.addEventListener('focusin', passwordConfirmFocusIn);
+emailInput.addEventListener('input', emailAlert);
+nicknameInput.addEventListener('input', nicknameAlert);
+passwordInput.addEventListener('input', passwordAlert);
+passwordConfirmInput.addEventListener('input', passwordConfirmAlert);
+signupButton.addEventListener('click', toSignup);

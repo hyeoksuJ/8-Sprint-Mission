@@ -65,9 +65,9 @@ function toItems(e) {
 }
 
 emailInput.addEventListener('focusin', emailFocusIn);
-emailInput.addEventListener('focusout', emailAlert);
+// emailInput.addEventListener('focusout', emailAlert);
 passwordInput.addEventListener('focusin', passwordFocusIn);
-passwordInput.addEventListener('focusout', passwordAlert);
+// passwordInput.addEventListener('focusout', passwordAlert);
 emailInput.addEventListener('input', emailAlert);
 passwordInput.addEventListener('input', passwordAlert);
 loginButton.addEventListener('click', toItems);
